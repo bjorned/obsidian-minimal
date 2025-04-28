@@ -1,4 +1,10 @@
-/* Everforest */
+/*
+Everforest
+MIT License
+Copyright (c) 2019 sainnhe
+https://github.com/sainnhe/everforest
+*/
+
 .theme-light.minimal-everforest-light {
 	--color-red-rgb: 248,85,82;
 	--color-orange-rgb: 245,125,38;
@@ -75,6 +81,7 @@
 .theme-light.minimal-everforest-light.minimal-light-contrast .workspace-drawer.mod-left,
 .theme-light.minimal-everforest-light.minimal-light-contrast .mod-left-split,
 .theme-light.minimal-everforest-light.minimal-light-contrast .workspace-ribbon.mod-left:not(.is-collapsed),
+.theme-light.minimal-everforest-light.minimal-light-contrast .theme-dark,
 .theme-dark.minimal-everforest-dark {
 	--base-h:203;
 	--base-s:15%;

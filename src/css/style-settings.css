@@ -5,11 +5,11 @@ id: minimal-style
 settings:
 	-
 		id: instructions
-		title: Welcome 👋
+		title: Documentation
 		type: heading
 		level: 2
 		collapsed: true
-		description: Use the Minimal Theme Settings plugin to access hotkeys, adjust features, select fonts, and choose from preset color schemes. Use the settings below for more granular customization. Visit minimal.guide for documentation.
+		description: Use the Minimal Theme Settings plugin to set hotkeys, adjust features, select fonts, and choose from preset color schemes. Use the settings below for more granular customization. Go to https://minimal.guide for documentation.
 	-
 		id: interface
 		title: Interface colors
@@ -186,27 +186,6 @@ settings:
 		default-light: '#'
 		default-dark: '#'
 	-
-		id: active-line
-		title: Active line
-		type: heading
-		level: 2
-		collapsed: true
-	-
-		id: active-line-on
-		title: Highlight active line
-		description: Adds a background to current line in editor
-		type: class-toggle
-		default: false
-	-
-		id: active-line-bg
-		title: Active line background
-		description: Using a low opacity color is recommended to avoid conflicting with highlights
-		type: variable-themed-color
-		opacity: true
-		format: hex
-		default-light: '#'
-		default-dark: '#'
-	-
 		id: blockquotes
 		title: Blockquotes
 		type: heading
@@ -301,19 +280,6 @@ settings:
 		level: 2
 		collapsed: true
 	-
-		id: canvas-card-label-display
-		title: Card labels
-		type: variable-select
-		allowEmpty: true
-		default: block
-		options:
-			-
-				label: Visible
-				value: block
-			-
-				label: Hidden
-				value: none
-	-
 		id: canvas-dot-pattern
 		title: Canvas dot pattern
 		description: Color for background dot pattern
@@ -332,7 +298,7 @@ settings:
 		title: Code font size
 		description: Accepts any CSS font-size value
 		type: variable-text
-		default: 13px
+		default: 0.8em
 	-
 		id: minimal-code-scroll
 		title: Scroll long lines
@@ -454,6 +420,12 @@ settings:
 		type: class-toggle
 		default: true
 	-
+		id: dataview-inline-lists
+		title: Force tables lists inline
+		description: Makes lists inside of table cells inline and comma separated
+		type: class-toggle
+		default: false
+	-
 		id: max-col-width
 		title: Dataview maximum column width
 		description: Maximum width for Dataview columns, accepts any CSS width value
@@ -471,6 +443,63 @@ settings:
 		description: Transclusions appear seamlessly in the flow of text. Can be enabled per file using the embed-strict helper class
 		type: class-toggle
 		default: false
+	-
+		id: embed-hide-title
+		title: Hide embed titles
+		description: Hide title of the transcluded file (if strict embed is off)
+		type: class-toggle
+		default: false
+	-
+		id: embed-underline
+		title: Underline embedded text
+		description: Transcluded text is underlined. Can be enabled per file using the embed-underline helper class
+		type: class-toggle
+		default: false
+	-
+		id: embed-max-height
+		title: Maximum height of embeds
+		type: variable-text
+		description: For transcluded text, accepts valid CSS units
+		default: ''
+	-
+		id: embed-decoration-style
+		title: Embedded text underline style
+		type: variable-select
+		description: Requires underlines to be enabled
+		allowEmpty: true
+		default: solid
+		options:
+			-
+				label: Solid
+				value: solid
+			-
+				label: Dashed
+				value: dashed
+			-
+				label: Dotted
+				value: dotted
+			-
+				label: Double
+				value: double
+			-
+				label: Wavy
+				value: wavy
+	-
+		id: embed-decoration-color
+		title: Embedded text underline color
+		type: variable-themed-color
+		description: Requires underlines to be enabled
+		format: hex
+		default-light: '#'
+		default-dark: '#'
+	-
+		id: embed-background
+		title: Embed background
+		type: variable-themed-color
+		opacity: true
+		format: hex
+		default-light: '#'
+		default-dark: '#'
 	-
 		id: graphs
 		title: Graphs
@@ -996,34 +1025,54 @@ settings:
 		max: 1
 		step: 0.05
 	-
+		id: image-radius
+		title: Image radius
+		description: Rounded corners for images
+		type: variable-number-slider
+		default: 4
+		min: 0
+		max: 16
+		step: 1
+		format: px
+	-
+		id: image-blend-light
+		title: Blend images in light mode
+		description: Allow images to blend into the color scheme background color
+		type: class-toggle
+		default: false
+	-
 		id: zoom-off
 		title: Disable image zoom
 		description: Turns off click + hold to zoom images
 		type: class-toggle
+	-
+		id: image-grid-fit
+		title: Image grid crop
+		description: Sets how images get cropped in a grid
+		type: variable-select
+		default: cover
+		options:
+			-
+				label: Crop to fit
+				value: cover
+			-
+				label: Show full image
+				value: contain
+	-
+		id: image-grid-background
+		title: Image grid background
+		description: Background of images in cells, useful when images are not cropped to fit
+		type: variable-themed-color
+		opacity: true
+		format: hex
+		default-light: '#'
+		default-dark: '#'
 	-
 		id: indentation-guides
 		title: Indentation guides
 		type: heading
 		level: 2
 		collapsed: true
-	-
-		id: ig-adjust-reading
-		title: Horizontal adjustment in reading mode
-		type: variable-number-slider
-		default: -0.65
-		min: -1.2
-		max: 0
-		step: 0.05
-		format: em
-	-
-		id: ig-adjust-edit
-		title: Horizontal adjustment in edit mode
-		type: variable-number-slider
-		default: -1
-		min: -10
-		max: 10
-		step: 1
-		format: px
 	-
 		id: indentation-guide-color
 		title: Indentation guide color
@@ -1110,6 +1159,59 @@ settings:
 		default-light: '#'
 		default-dark: '#'
 	-
+		id: active-line
+		title: Line  numbers
+		type: heading
+		level: 2
+		collapsed: true
+	-
+		id: active-line-on
+		title: Highlight active line
+		description: Adds a background to current line in editor
+		type: class-toggle
+		default: false
+	-
+		id: folding-offset
+		title: Gutter offset
+		description: Width of the file margin used for gutter
+		type: variable-number-slider
+		default: 32
+		min: 0
+		max: 60
+		step: 1
+		format: px
+	-  
+		id: gutter-background
+		title: Gutter background
+		type: variable-themed-color
+		format: hex
+		opacity: true
+		default-light: '#'
+		default-dark: '#'
+	-  
+		id: line-number-color
+		title: Line number color
+		type: variable-themed-color
+		format: hex
+		default-light: '#'
+		default-dark: '#'
+	-  
+		id: line-number-color-active
+		title: Active line number color
+		type: variable-themed-color
+		format: hex
+		default-light: '#'
+		default-dark: '#'
+	-
+		id: active-line-bg
+		title: Active line background
+		description: Using a low opacity color is recommended to avoid conflicting with highlights
+		type: variable-themed-color
+		opacity: true
+		format: hex
+		default-light: '#'
+		default-dark: '#'
+	-
 		id: lists
 		title: Lists and tasks
 		type: heading
@@ -1163,16 +1265,105 @@ settings:
 		step: 0.1
 		format: em
 	-
+		id: pdf
+		title: PDFs
+		type: heading
+		level: 2
+		collapsed: true
+	-
+		id: pdf-page-style
+		title: PDF page style
+		description: Borders and shadows around pages
+		type: class-select
+		allowEmpty: false
+		default: pdf-seamless-on
+		options:
+			-
+				label: Seamless
+				value: pdf-seamless-on
+			-
+				label: Shadows
+				value: pdf-shadows-on
+	-
+		id: pdf-invert-dark
+		title: Invert PDFs in dark mode
+		description: Best for working with black text on white pages
+		type: class-toggle
+		default: true
+	-
+		id: pdf-blend-light
+		title: Blend PDFs in light mode
+		description: Allow PDFs to blend into the color scheme background color
+		type: class-toggle
+		default: true
+	-
+		id: pdf-dark-opacity
+		title: PDF opacity in dark mode
+		description: Fade PDF pages in dark mode
+		type: variable-number-slider
+		default: 1
+		min: 0.25
+		max: 1
+		step: 0.05
+	-
+		id: progress
+		title: Progress bars
+		type: heading
+		level: 2
+		collapsed: true
+	-
+		id: progress-complete
+		title: Completed progress bar color
+		description: Defaults to your accent color
+		type: variable-themed-color
+		format: hex
+		default-light: '#'
+		default-dark: '#'
+	-
+		id: properties
+		title: Properties
+		type: heading
+		level: 2
+		collapsed: true
+	-
+		id: metadata-heading-off
+		title: Hide properties heading
+		description: Hide "Properties" heading above properties
+		type: class-toggle
+		default: false
+	-
+		id: metadata-add-property-off
+		title: Hide "Add property" button
+		description: Hide "Add property" button below properties
+		type: class-toggle
+		default: false
+	-
+		id: metadata-icons-off
+		title: Hide property icons
+		description: Hide icons next to property names
+		type: class-toggle
+		default: false
+	-
+		id: metadata-dividers
+		title: Property row lines
+		description: Display borders between properties
+		type: class-toggle
+		default: false
+	-
+		id: metadata-label-width-multiplier
+		title: Property name width
+		description: Width for the name of the property
+		type: variable-number-slider
+		default: 9
+		min: 4
+		max: 12
+		step: 0.25
+	-
 		id: sidebars
 		title: Sidebars
 		type: heading
 		level: 2
 		collapsed: true
-	-
-		id: sidebar-lines-off
-		title: Disable sidebar relationship lines
-		description: Turns off lines in file navigation
-		type: class-toggle
 	-
 		id: sidebar-tabs-style
 		title: Sidebar tab style
@@ -1193,8 +1384,52 @@ settings:
 				label: Modern wide
 				value: sidebar-tabs-wide
 			-
+				label: Square
+				value: sidebar-tabs-plain-square
+			-
 				label: Underline
 				value: sidebar-tabs-underline
+	-
+		id: sidebar-tabs-names
+		title: Sidebar tab names
+		type: class-select
+		allowEmpty: false
+		default: tab-names-off
+		options:
+			-
+				label: Hidden
+				value: tab-names-off
+			-
+				label: Visible
+				value: tab-names-on
+			-
+				label: Single tab only
+				value: tab-names-single
+	-
+		id: vault-profile-display
+		title: Vault profile position
+		type: class-select
+		allowEmpty: false
+		default: vault-profile-default
+		options:
+			-
+				label: Bottom
+				value: vault-profile-default
+			-
+				label: Top
+				value: vault-profile-top
+	-
+		id: hide-help
+		title: Hide help button
+		description: 
+		type: class-toggle
+		default: false
+	-
+		id: hide-settings
+		title: Hide settings button
+		description: 
+		type: class-toggle
+		default: false
 	-
 		id: mobile-left-sidebar-width
 		title: Mobile left sidebar width
@@ -1210,6 +1445,32 @@ settings:
 		default: 240
 		format: pt
 	-
+		id: ribbon
+		title: Ribbon
+		type: heading
+		level: 2
+		collapsed: true
+	-
+		id: ribbon-style
+		title: Ribbon style
+		description: Display options for ribbon menu. Ribbon must be turned on in Obsidian Appearance settings for these options to work.
+		type: class-select
+		allowEmpty: false
+		default: ribbon-hidden
+		options:
+			-
+				label: Default
+				value: ribbon-hidden
+			-
+				label: Expand (vertical)
+				value: ribbon-vertical-expand
+			-
+				label: Hover (vertical)
+				value: ribbon-bottom-left-hover-vertical
+			-
+				label: Hover (horizontal)
+				value: ribbon-bottom-left-hover	
+	-
 		id: tables
 		title: Tables
 		type: heading
@@ -1222,22 +1483,32 @@ settings:
 		type: variable-text
 		default: 1em
 	-
+		id: table-column-min-width
+		title: Minimum column width
+		type: variable-text
+		default: 6ch
+	-
+		id: table-column-max-width
+		title: Maximum column width
+		type: variable-text
+		default: none
+	-
 		id: maximize-tables-off
-		title: Maximize table width (beta)
-		description: Tables fill the width of the line
+		title: Maximize table width 
+		description: Determines how wide tables should behave when they become wider than the line width
 		type: class-select
 		allowEmpty: false
-		default: maximize-tables
+		default: maximize-tables-off
 		options:
 			-
-				label: Always
-				value: maximize-tables
+				label: Fit to line width
+				value: maximize-tables-off
 			-
-				label: Automatic
+				label: Overflow line width
 				value: maximize-tables-auto
 			-
-				label: Never
-				value: maximize-tables-off
+				label: Always fill
+				value: maximize-tables
 	-
 		id: row-lines
 		title: Row lines
@@ -1278,6 +1549,12 @@ settings:
 		id: table-numbers
 		title: Row numbers
 		description: Display row numbers in tables globally
+		type: class-toggle
+		default: false
+	-
+		id: table-center
+		title: Center small tables
+		description: Make small tables centered
 		type: class-toggle
 		default: false
 	-
@@ -1328,6 +1605,9 @@ settings:
 			-
 				label: Modern
 				value: tabs-modern
+			-
+				label: Square
+				value: tabs-plain-square
 			-
 				label: Underline
 				value: tabs-underline
@@ -1391,6 +1671,18 @@ settings:
 			-
 				label: Center flipped
 				value: tab-stack-center-flipped
+	-
+		id: tab-stacked-spine-order
+		title: Spine element order
+		type: variable-select
+		default: row
+		options:
+			-
+				label: Default
+				value: row
+			-
+				label: Reversed
+				value: row-reverse
 	-
 		id: tags
 		title: Tags
@@ -1507,6 +1799,15 @@ settings:
 		default-light: '#'
 		default-dark: '#'
 	-
+		id: text-formatting
+		title: Markdown syntax color
+		description: Markdown formatting syntax text color
+		type: variable-themed-color
+		opacity: true
+		format: hex
+		default-light: '#'
+		default-dark: '#'
+	-
 		id: italic-color
 		title: Italic text color
 		type: variable-themed-color
@@ -1521,19 +1822,25 @@ settings:
 		default-light: '#'
 		default-dark: '#'
 	-
-		id: bold-weight
+		id: bold-modifier
 		title: Bold text weight
 		type: variable-number-slider
-		default: 600
+		default: 200
 		min: 100
-		max: 900
+		max: 500
 		step: 100
 	-
-		id: spacing-p
+		id: p-spacing
 		title: Paragraph spacing
-		description: Space between paragraphs in reading mode
+		description: Space between paragraphs in reading mode (Obsidian 1.3.7+)
 		type: variable-text
-		default: 0.75em
+		default: 1.75rem
+	-
+		id: heading-spacing
+		title: Heading spacing
+		description: Space between paragraphs and headings in reading mode (Obsidian 1.3.7+)
+		type: variable-text
+		default: 2em
 	-
 		id: titles
 		title: Titles
@@ -1748,18 +2055,14 @@ settings:
 		format: hex
 		default-light: '#'
 		default-dark: '#'
+	- 
+		id: cards-background-hover (hover)
+		title: Card background color
+		type: variable-themed-color
+		format: hex
+		default-light: '#'
+		default-dark: '#'
 
-*/
-
-/* @settings
-name: Minimal Mobile
-id: minimal-mobile
-settings:
-	-
-		id: mobile-toolbar-off
-		title: Disable toolbar
-		description: Turns off mobile toolbar
-		type: class-toggle
 */
 
 /* @settings
@@ -1767,10 +2070,35 @@ name: Minimal Advanced Settings
 id: minimal-advanced
 settings:
 	-
+		id: hide-markdown
+		title: Hide Markdown syntax
+		description: WARNING — This may be confusing because the characters still exist they are just hidden.
+		type: class-toggle
+	-
+		id: hide-settings-desc
+		title: Hide setting descriptions
+		description: Press and hold setting names to see their description.
+		type: class-toggle
+	-
 		id: styled-scrollbars
 		title: Styled scrollbars
 		description: Use styled scrollbars (replaces native scrollbars)
 		type: class-toggle
+	-
+		id: animations
+		title: Animation speed
+		type: class-select
+		default: default
+		options:
+			-
+				label: Normal
+				value: default
+			-
+				label: Disabled
+				value: disable-animations
+			-
+				label: Fast
+				value: fast-animations
 	-
 		id: cursor
 		title: Cursor style
@@ -1801,15 +2129,10 @@ settings:
 		type: variable-number
 		default: 11
 		format: px
-	-
-		id: folding-offset
-		title: Folding offset
-		description: Width of the left margin used for folding indicators
-		type: variable-number-slider
-		default: 10
-		min: 0
-		max: 30
-		step: 1
-		format: px
+	- 
+		id: mobile-toolbar-off
+		title: Disable mobile toolbar
+		description: Turns off toolbar in editor on mobile
+		type: class-toggle
 
 */

@@ -1,6 +1,12 @@
-/* catppuccin */
+/*
+Catppuccin
+MIT License
+Copyright (c) 2021 Catppuccin
+https://github.com/catppuccin/catppuccin
+*/
+
 .theme-light.minimal-catppuccin-light {
-	--color-red-rgb: 230, 69, 83;
+	--color-red-rgb: 230,69,83;
 	--color-orange-rgb: 254,100,12;
 	--color-yellow-rgb: 223,142,29;
 	--color-green-rgb: 64,160,43;
@@ -75,6 +81,7 @@
 .theme-light.minimal-catppuccin-light.minimal-light-contrast .workspace-drawer.mod-left,
 .theme-light.minimal-catppuccin-light.minimal-light-contrast .mod-left-split,
 .theme-light.minimal-catppuccin-light.minimal-light-contrast .workspace-ribbon.mod-left:not(.is-collapsed),
+.theme-light.minimal-catppuccin-light.minimal-light-contrast .theme-dark,
 .theme-dark.minimal-catppuccin-dark {
 	--base-h: 229;
 	--base-s: 19%;

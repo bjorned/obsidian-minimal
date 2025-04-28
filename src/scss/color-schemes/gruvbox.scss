@@ -1,4 +1,8 @@
-/* Gruvbox */
+/*
+Gruvbox
+MIT License
+https://github.com/morhetz/gruvbox
+*/
 
 .theme-dark.minimal-gruvbox-dark,
 .theme-light.minimal-gruvbox-light {
@@ -58,6 +62,7 @@
 .theme-light.minimal-gruvbox-light.minimal-light-contrast .workspace-drawer.mod-left,
 .theme-light.minimal-gruvbox-light.minimal-light-contrast .mod-left-split,
 .theme-light.minimal-gruvbox-light.minimal-light-contrast .workspace-ribbon.mod-left:not(.is-collapsed),
+.theme-light.minimal-gruvbox-light.minimal-light-contrast .theme-dark,
 .theme-dark.minimal-gruvbox-dark {
 	--accent-h:24;
 	--accent-s:88%;

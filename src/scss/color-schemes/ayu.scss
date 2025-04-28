@@ -1,4 +1,10 @@
-/* ayu */
+/*
+ayu
+MIT License
+Copyright (c) Konstantin Pschera <me@kons.ch> (kons.ch)
+https://github.com/ayu-theme/ayu-colors
+*/
+
 .theme-light.minimal-ayu-light {
 	--color-red-rgb: 230,80,80;
 	--color-orange-rgb: 250,141,62;
@@ -65,6 +71,7 @@
 .theme-light.minimal-ayu-light.minimal-light-contrast .workspace-drawer.mod-left,
 .theme-light.minimal-ayu-light.minimal-light-contrast .mod-left-split,
 .theme-light.minimal-ayu-light.minimal-light-contrast .workspace-ribbon.mod-left:not(.is-collapsed),
+.theme-light.minimal-ayu-light.minimal-light-contrast .theme-dark,
 .theme-dark.minimal-ayu-dark {
 	--base-h:222;
 	--base-s:22%;

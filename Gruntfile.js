@@ -2,7 +2,7 @@
 Minimal Theme compiler for Obsidian
 
 MIT License
-Copyright (c) 2020-2021 Stephan Ango (@kepano)
+Copyright (c) 2020-2024 Steph Ango (@kepano)
 
 Grunt is JS library that runs a sequence of compilation tasks, and watches 
 the working files to automatically run this sequence whenever changes happen. 
@@ -28,9 +28,6 @@ module.exports = function(grunt) {
         the theme using Sass */ 
         sass: {
             unminified: {
-                options: {
-                    sourcemap: 'none'
-                },
                 files: {
                     'src/css/main.css' : 'src/scss/index.scss'
                 }
@@ -38,7 +35,6 @@ module.exports = function(grunt) {
             dist: {
                 options: {
                     style: 'compressed',
-                    sourcemap: 'none'
                 },
                 files: {
                     'src/css/main.min.css' : 'src/scss/index.scss'

@@ -1,4 +1,9 @@
-/* Nord */
+/*
+Nord
+MIT License
+Copyright (c) 2016-present Sven Greb <development@svengreb.de> (https://www.svengreb.de)
+https://github.com/nordtheme/nord
+*/
 
 .theme-dark.minimal-nord-dark,
 .theme-light.minimal-nord-light {
@@ -50,6 +55,7 @@
 .theme-light.minimal-nord-light.minimal-light-contrast .workspace-drawer.mod-left,
 .theme-light.minimal-nord-light.minimal-light-contrast .mod-left-split,
 .theme-light.minimal-nord-light.minimal-light-contrast .workspace-ribbon.mod-left:not(.is-collapsed),
+.theme-light.minimal-nord-light.minimal-light-contrast .theme-dark,
 .theme-dark.minimal-nord-dark {
 	--base-h:220;
 	--base-s:16%;
